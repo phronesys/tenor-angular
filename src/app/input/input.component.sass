@@ -1,7 +1,39 @@
-input 
-  font-size: 1rem
-  background-color: black
-  color: white
-  padding: 1rem 1.5rem
-  &::placeholder 
-    color: var(--color-gray-100)
+label
+  display: flex
+  align-items: center
+  input
+    width: 0
+    padding: 12px 24px 12px 24px
+    border-radius: 99px
+    outline: none
+    font-size: 1rem
+    color: var(--color-tertiary)
+    background-color: var(--color-primary)
+    border: 1px solid var(--color-tertiary)
+    &::placeholder
+      color: var(--color-tertiary-light)
+  app-svg-search
+      cursor: pointer
+      fill: currentColor
+      color: var(--color-tertiary)
+      transform: translateX(-36px)
+
+label.open
+  display: flex
+  align-items: center
+  input
+    width: initial
+    padding: 12px 42px 12px 24px
+    border-radius: 99px
+    outline: none
+    font-size: 1rem
+    color: var(--color-tertiary)
+    background-color: var(--color-primary)
+    border: 1px solid var(--color-tertiary)
+    &::placeholder
+      color: var(--color-tertiary-light)
+  app-svg-search
+      cursor: pointer
+      fill: currentColor
+      color: var(--color-tertiary)
+      transform: translateX(-36px)

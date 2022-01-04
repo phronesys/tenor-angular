@@ -1,1 +1,4 @@
-<input type="text" placeholder="write something">
+<label [class]="open">
+  <input type="text" placeholder="Looking for a gif?">
+  <app-svg-search class="search" (click)="search()"></app-svg-search>
+</label>

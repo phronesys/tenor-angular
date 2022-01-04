@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-input',
@@ -6,11 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./input.component.sass']
 })
 export class InputComponent implements OnInit {
-
-  constructor() { }
-
+  @Input() open: string;
+  constructor() {
+    this.open = ""
+  }
+  search() {
+    this.open !== "open" ? this.open = "open" : this.open = ""
+  }
   ngOnInit(): void {
-    
+
   }
 
 }
