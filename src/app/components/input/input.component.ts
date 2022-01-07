@@ -16,15 +16,14 @@ import {
     trigger('search', [
       // ...
       state('open', style({
-        height: '200px',
-        opacity: 1,
-        backgroundColor: 'yellow'
+        width: '300px',
+        padding: '12px 42px 12px 24px'
       })),
-      transition('open => closed', [
-        animate('1s')
+      transition('close => open', [
+        animate('.5s')
       ]),
-      transition('closed => open', [
-        animate('0.5s')
+      transition('open => close', [
+        animate('.5s')
       ]),
     ]),
   ]
