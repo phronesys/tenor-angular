@@ -1,4 +1,4 @@
-<label [class]="open">
+<label [@search]="open ? 'open' : ''">
   <input type="text" placeholder="Looking for a gif?">
   <app-svg-search class="search" (click)="search()"></app-svg-search>
 </label>
