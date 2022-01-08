@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {
   trigger,
   state,
@@ -29,14 +29,16 @@ import {
 })
 export class InputComponent implements OnInit {
   @Input() open: boolean = false;
+  @Output() onKeyup = new EventEmitter<any>();
 
-  constructor() {
+  emitEntry(event: any) {
+    this.onKeyup.emit(event.target.value);
   }
   toggleSearch() {
     this.open = !this.open;
   }
+
   ngOnInit(): void {
 
   }
-
 }

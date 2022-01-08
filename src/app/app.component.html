@@ -1,4 +1,4 @@
 <div id="app-root">
-  <app-input></app-input>
-  <app-input [open]="true"></app-input>
+  <app-input (onKeyup)="appInput($event)"></app-input>
+  <app-input (onKeyup)="appInput($event)" [open]="true"></app-input>
 </div>

@@ -1,4 +1,5 @@
 <label>
-  <input [@searchOpen]="open ? 'open' : 'close'" type="text" placeholder="Looking for a gif?">
+  <input type="text" placeholder="Looking for a gif?" [@searchOpen]="open ? 'open' : 'close'"
+    (keyup)="emitEntry($event)">
   <app-svg-search class="search" (click)="toggleSearch()"></app-svg-search>
 </label>
