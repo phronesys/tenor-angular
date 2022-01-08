@@ -13,8 +13,7 @@ import {
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.sass'],
   animations: [
-    trigger('search', [
-      // ...
+    trigger('searchOpen', [
       state('open', style({
         width: '300px',
         padding: '12px 42px 12px 24px'
@@ -23,18 +22,17 @@ import {
         animate('.5s')
       ]),
       transition('open => close', [
-        animate('.5s')
+        animate('.2s')
       ]),
     ]),
   ]
 })
 export class InputComponent implements OnInit {
-  @Input() open: boolean;
+  @Input() open: boolean = false;
 
   constructor() {
-    this.open = false
   }
-  search() {
+  toggleSearch() {
     this.open = !this.open;
   }
   ngOnInit(): void {
