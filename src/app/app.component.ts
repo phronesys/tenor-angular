@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  appInput(value: any) {
+  inputSearch(value: any) {
     console.log(value);
   }
 }

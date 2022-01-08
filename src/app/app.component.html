@@ -1,4 +1,7 @@
 <div id="app-root">
-  <app-input (onKeyup)="appInput($event)"></app-input>
-  <app-input (onKeyup)="appInput($event)" [open]="true"></app-input>
+  <app-input
+    class="main-input"
+    (onSearch)="inputSearch($event)"
+    [open]="true"
+  ></app-input>
 </div>
