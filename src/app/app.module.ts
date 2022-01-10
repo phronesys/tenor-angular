@@ -10,6 +10,7 @@ import { SvgGifComponent } from './components/svg/svg-gif/svg-gif.component';
 import { SvgGiftComponent } from './components/svg/svg-gift/svg-gift.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { CardComponent } from './components/card/card.component';
+import { CardListComponent } from './components/card-list/card-list.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CardComponent } from './components/card/card.component';
     SvgGifComponent,
     SvgGiftComponent,
     LogoComponent,
-    CardComponent
+    CardComponent,
+    CardListComponent
   ],
   imports: [
     BrowserModule,

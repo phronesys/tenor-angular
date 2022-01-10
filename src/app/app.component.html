@@ -5,5 +5,7 @@
     (onSearch)="inputSearch($event)"
     [open]="true"
   ></app-input>
-  <app-card></app-card>
+  <app-card-list *ngFor="let gif of data">
+    <app-card>{{ gif.id }} {{gif.tenorUrl}}</app-card>
+  </app-card-list>
 </div>
