@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  API_KEY: process.env['API_KEY'] || ""
+  API_KEY: "EUTO4JGCGB8P"
 };
