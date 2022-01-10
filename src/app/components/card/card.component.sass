@@ -1,3 +1,17 @@
 .card
-  padding: 100px
-  background-color: white
+  padding: 1rem
+  overflow: hidden
+  background-color: var(--color-primary) 
+  box-shadow: 1px 1px 3px var(--color-secondary) 
+  transition: all 5s ease-linear
+  &:hover 
+    box-shadow: 1px 1px 10px var(--color-tertiary) 
+  a
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 300px
+    img
+      aspect-ratio: auto
+      width: max(300px, 100%)
+      height: max(300px, 100%)

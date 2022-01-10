@@ -11,6 +11,7 @@ export class GifService {
   apiKey: string = environment.API_KEY;
   constructor(private http: HttpClient) { }
 
+  /* this can be refactored into a Model */
   gifAdapter(gif: any) {
     return {
       id: gif.id,
@@ -21,8 +22,8 @@ export class GifService {
     }
   }
 
-  search(params: string): Observable<any> {
-    const url: string = `https://g.tenor.com/v1/search?q=${params}&key=${this.apiKey}`;
+  search(keyword: string): Observable<any> {
+    const url: string = `https://g.tenor.com/v1/search?q=${keyword}&key=${this.apiKey}`;
 
     return this.http
       .get(url)

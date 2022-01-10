@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card.component.sass']
 })
 export class CardComponent implements OnInit {
-
-  constructor() { }
+  @Input() id: number = NaN;
+  @Input() description: string = "";
+  @Input() gifUrl: string = "";
+  @Input() gifUrlTiny: string = "";
+  @Input() tenorUrl: string = "";
 
   ngOnInit(): void {
   }

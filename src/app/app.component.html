@@ -1,11 +1,16 @@
 <div id="app-root">
   <app-logo></app-logo>
-  <app-input
-    class="main-input"
-    (onSearch)="inputSearch($event)"
-    [open]="true"
-  ></app-input>
-  <app-card-list *ngFor="let gif of data">
-    <app-card>{{ gif.id }} {{gif.tenorUrl}}</app-card>
+  <div class="keyword">Current keyword: {{ keyword }}</div>
+  <!-- <app-menu></app-menu> -->
+  <app-card-list>
+    <app-card
+      *ngFor="let gif of data"
+      [id]="gif.id"
+      [tenorUrl]="gif.tenorUrl"
+      [description]="gif.description"
+      [gifUrl]="gif.gifUrl"
+      [gifUrlTiny]="gif.gifUrlTiny"
+    ></app-card>
   </app-card-list>
+  <app-input class="input" (onSearch)="inputSearch($event)"></app-input>
 </div>
