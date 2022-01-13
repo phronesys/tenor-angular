@@ -1,6 +1,6 @@
 <div id="app-root">
   <app-logo></app-logo>
-  <div class="keyword">Current keyword: {{ keyword }}</div>
+  <div class="keyword">{{ keyword }} for you</div>
   <!-- <app-menu></app-menu> -->
   <app-card-list>
     <app-card
@@ -12,5 +12,16 @@
       [gifUrlTiny]="gif.gifUrlTiny"
     ></app-card>
   </app-card-list>
-  <app-input class="input" (onSearch)="inputSearch($event)"></app-input>
+  <app-input
+    class="input"
+    (onSearch)="inputSearch($event)"
+    (onKeyup)="inputAutocomplete($event)"
+  >
+    <app-suggestion
+      *ngFor="let suggestion of suggestions"
+      (click)="completeSuggested(suggestion)"
+    >
+      {{ suggestion }}
+    </app-suggestion>
+  </app-input>
 </div>

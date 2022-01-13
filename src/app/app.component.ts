@@ -7,20 +7,40 @@ import { Gif } from './services/Gif';
   styleUrls: ['./app.component.sass'],
 })
 export class AppComponent implements OnInit {
-  keyword: string = "linux";
+  keyword: string = "esqueleto dance";
   data: Array<Gif> = [];
+  suggestions: Array<string> = [];
   constructor(private gifService: GifService) { }
 
-  search = () => {
-    this.gifService.search(this.keyword)
+  /* services methods */
+  search = (keyword: string) => {
+    this.gifService
+      .search(keyword)
       .subscribe(data => this.data = data);
   }
-  inputSearch(value: any) {
-    this.keyword = value
-    this.search();
+
+  autocomplete = (keyword: string) => {
+    this.gifService
+      .autocomplete(keyword)
+      .subscribe(data => this.suggestions = data)
+  }
+
+  /* handle events */
+  inputSearch(value: string) {
+    this.keyword = value;
+    this.search(value);
+  }
+
+  inputAutocomplete(value: string) {
+    this.autocomplete(value)
+  }
+
+  completeSuggested(suggestion: string) {
+    console.log(suggestion);
+    
   }
 
   ngOnInit(): void {
-    this.search();
+    this.search(this.keyword);
   }
 }

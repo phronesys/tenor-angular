@@ -13,7 +13,7 @@ export class GifService {
   constructor(private http: HttpClient) { }
 
   /* this can be refactored into a Model */
-  gifAdapter(gif: any) {
+  private gifAdapter(gif: any) {
     return {
       id: gif.id,
       description: gif.content_description,
@@ -22,15 +22,27 @@ export class GifService {
       tenorUrl: gif.url
     }
   }
+  autocomplete(keyword: string): Observable<Array<string>> {
+    const url: string = `https://g.tenor.com/v1/autocomplete?q=${keyword}&key=${this.apiKey}&limit=3`
+    return this.http
+      .get(url)
+      .pipe(
+        map(
+          (response: any) => response.results
+        )
+      )
+  }
 
   search(keyword: string): Observable<Gif[]> {
-    const url: string = `https://g.tenor.com/v1/search?q=${keyword}&key=${this.apiKey}`;
+    const url: string = `https://g.tenor.com/v1/search?q=${keyword}&key=${this.apiKey}&limit=40`;
 
     return this.http
       .get(url)
       .pipe(
         map(
-          (res: any) => res.results.map((gif: any) => this.gifAdapter(gif))
+          (response: any) => {
+            return response.results.map((gif: any) => this.gifAdapter(gif))
+          }
         )
       );
   }

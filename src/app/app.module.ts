@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { InputComponent } from './components/input/input.component';
@@ -11,6 +12,7 @@ import { SvgGiftComponent } from './components/svg/svg-gift/svg-gift.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { CardComponent } from './components/card/card.component';
 import { CardListComponent } from './components/card-list/card-list.component';
+import { SuggestionComponent } from './components/input/suggestion/suggestion.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import { CardListComponent } from './components/card-list/card-list.component';
     SvgGiftComponent,
     LogoComponent,
     CardComponent,
-    CardListComponent
+    CardListComponent,
+    SuggestionComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

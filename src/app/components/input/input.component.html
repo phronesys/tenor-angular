@@ -1,10 +1,14 @@
 <label>
+  <ul class="suggestions" *ngIf="value.length > 0">
+    <ng-content></ng-content>
+  </ul>
   <input
     type="text"
     placeholder="Looking for a gif?"
     [@searchOpen]="open ? 'open' : 'close'"
-    (keyup)="onKeyup($event)"
-    [value]="value"
+    [(ngModel)]="value"
+    (ngModelChange)="modelChange(value)"
+    (keydown.enter)="searchValue()"
   />
-  <app-svg-search class="search" (click)="toggleSearch()"> </app-svg-search>
+  <app-svg-search class="search" (click)="toggle()"> </app-svg-search>
 </label>

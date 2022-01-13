@@ -29,21 +29,21 @@ import {
 })
 export class InputComponent implements OnInit {
   @Input() open: boolean = false;
-  @Output() onSearch = new EventEmitter<any>();
+  @Output() onSearch = new EventEmitter<string>();
+  @Output() onKeyup = new EventEmitter<string>();
   value: string = "";
 
-  onKeyup = (event: any) => {
-    if (event.key === "Enter") return this.toggleSearch();
-    const value: string = event.target.value;
-    this.value = value;
+  modelChange = (value: string) => {
+    this.onKeyup.emit(value);
   }
-  emitValue = () => {
+
+  searchValue = () => {
     this.onSearch.emit(this.value)
     this.value = "";
-  };
+  }
 
-  toggleSearch = () => {
-    if (this.open) this.emitValue();
+  toggle = () => {
+    if (this.open && this.value.length > 0) this.searchValue();
     this.open = !this.open;
   }
 
