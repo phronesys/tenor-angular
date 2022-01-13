@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
+import { Gif } from './Gif';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,7 @@ export class GifService {
     }
   }
 
-  search(keyword: string): Observable<any> {
+  search(keyword: string): Observable<Gif[]> {
     const url: string = `https://g.tenor.com/v1/search?q=${keyword}&key=${this.apiKey}`;
 
     return this.http

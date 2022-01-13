@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GifService } from './services/gif.service';
+import { Gif } from './services/Gif';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,14 +8,12 @@ import { GifService } from './services/gif.service';
 })
 export class AppComponent implements OnInit {
   keyword: string = "linux";
-  data: Array<any> = [];
+  data: Array<Gif> = [];
   constructor(private gifService: GifService) { }
 
   search = () => {
     this.gifService.search(this.keyword)
-      .subscribe(data => {
-        this.data = data;
-      });
+      .subscribe(data => this.data = data);
   }
   inputSearch(value: any) {
     this.keyword = value
