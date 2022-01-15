@@ -12,16 +12,5 @@
       [gifUrlTiny]="gif.gifUrlTiny"
     ></app-card>
   </app-card-list>
-  <app-input
-    class="input"
-    (onSearch)="inputSearch($event)"
-    (onKeyup)="inputAutocomplete($event)"
-  >
-    <app-suggestion
-      *ngFor="let suggestion of suggestions"
-      (click)="completeSuggested(suggestion)"
-    >
-      {{ suggestion }}
-    </app-suggestion>
-  </app-input>
+  <app-input class="input" (onSearch)="inputSearch($event)"> </app-input>
 </div>

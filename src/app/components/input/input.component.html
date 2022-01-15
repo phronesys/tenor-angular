@@ -1,6 +1,11 @@
 <label>
-  <ul class="suggestions" *ngIf="value.length > 0">
-    <ng-content></ng-content>
+  <ul class="suggestions" *ngIf="value.length > 0 && showSuggestions">
+    <app-suggestion
+      *ngFor="let suggestion of suggestions"
+      (click)="updateValue(suggestion)"
+    >
+      {{ suggestion }}
+    </app-suggestion>
   </ul>
   <input
     type="text"
@@ -9,6 +14,7 @@
     [(ngModel)]="value"
     (ngModelChange)="modelChange(value)"
     (keydown.enter)="searchValue()"
+    (keydown.escape)="resetInput()"
   />
   <app-svg-search class="search" (click)="toggle()"> </app-svg-search>
 </label>
