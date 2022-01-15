@@ -1,0 +1,9 @@
+@use "sass:string"
+
+/**
+ maybe this functions is a bad idea
+ but I wrote it to learn, now I can create functions  
+ **/
+@function color($color)
+  $finalColor: string.unquote('--color-'+#{$color})
+  @return var($finalColor)

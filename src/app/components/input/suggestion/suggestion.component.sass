@@ -1,10 +1,4 @@
-@use "sass:string"
-
-@function color($color)
-  $finalColor: string.unquote('--color-'+#{$color})
-  @return var($finalColor)
-
-// @debug color("primary")
+@use "../../../../sass/_functions" as *
 
 .suggestion
   font-weight: 600
